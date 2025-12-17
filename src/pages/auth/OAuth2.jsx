@@ -24,6 +24,7 @@ function OAuth2() {
                 navigate("/");
             }
         }
+        // 로딩이 끝나면 data가 들어올테니 이렇게 설정 처음은 undifined들어오고 다시실행되면 user의 data들어옴
     }, [meQuery.data]);
 
     return <></>
