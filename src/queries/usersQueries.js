@@ -3,6 +3,7 @@ import { requestMe } from "../apis/users/usersApi"
 
 export const useMeQuery = () => {
     const accessToken = localStorage.getItem("AccessToken");
+                        // localStorage는 F12 application에있음
     return useQuery({
         queryKey: ["me", accessToken],
         queryFn: async () => {

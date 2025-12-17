@@ -4,10 +4,10 @@ import { useMeQuery } from "../../queries/usersQueries";
 
 function OAuth2() {
     const [ searchParams ] = useSearchParams();
+        // get요청때 사용된 params를 가져오는것
     const accessToken = searchParams.get("accessToken");
-    const navigate = useNavigate();
 
-    
+    const navigate = useNavigate();
     if (!!accessToken) {
         localStorage.setItem("AccessToken", accessToken);
     }
@@ -24,7 +24,6 @@ function OAuth2() {
                 navigate("/");
             }
         }
-
     }, [meQuery.data]);
 
     return <></>
