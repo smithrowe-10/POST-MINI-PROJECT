@@ -2,12 +2,21 @@
 // https://www.npmjs.com/package/react-modal
 import ReactModal from "react-modal";
 import  * as s  from "./styles";
-import { useEffect } from "react";
+import Loading from "../common/Loading";
+import { useMeQuery } from "../../queries/usersQueries";
+import Select from "react-select";
+import { IoCloudUploadOutline } from "react-icons/io5";
 
 // - isOpen: 모달을 열지 말지 결정하는 True/False 값
 // - onRequestClose: 모달 바깥을 누르거나 ESC를 누를 때 실행될 닫기 함수
 // - layoutRef: 모달이 어디를 기준으로 뜰지 지정하는 참조점(보통 MainLayout)
 function AddPostModal({isOpen, onRequestClose, layoutRef}) {
+
+    const {isLoading, data} = useMeQuery();
+
+    if (isLoading) {
+        return <Loading/>
+    }
 
     return <ReactModal 
         style={{
@@ -38,11 +47,34 @@ function AddPostModal({isOpen, onRequestClose, layoutRef}) {
                     <h2>Add a Post</h2>
                 </header>
                 <main>
-
+                    <div css={s.profileContainer}>
+                        <div css={s.profileImg(data.data.imgUrl)}></div>
+                        <div>{data.data.nickname}</div>
+                    </div>
+                    <Select
+                        options={[
+                            {
+                            label: "Public",
+                            value: "Public"
+                            },
+                            {
+                            label: "Follow",
+                            value: "Follow"
+                            },
+                    ]} />
+                    <div css={s.contentInputBox}>
+                        <textarea></textarea>
+                    </div>
+                    <div>
+                        <IoCloudUploadOutline />
+                        <div>Please post your story.</div>
+                        <button>Add Image</button>
+                    </div>
+                    <div></div>
                 </main>
                 <footer>
-                    <button>Post</button>
-                    <button>Cancle</button>
+                    <button css={s.postButton}>Post</button>
+                    <button onClick={onRequestClose}>Cancle</button>
                 </footer>
             </div>
     </ReactModal>
