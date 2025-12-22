@@ -5,5 +5,5 @@ export const createPost = (formData) => {
 }
 
 export const getFeeds = (params) => {
-    return api.get("/api/posts/feeds", (params));
+    return api.get("/api/posts/feeds", {params});
 }
