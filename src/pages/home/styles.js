@@ -67,3 +67,17 @@ export const userInfo = css`
         color: #888;
     }
 `
+
+export const feedImageContainer = css`
+    
+`
+
+export const feedContentContainer = css`
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    font-size: 14px;
+    color: #222;
+` 
