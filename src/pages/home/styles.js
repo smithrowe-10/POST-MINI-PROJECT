@@ -25,7 +25,7 @@ export const followInfoContainer = css`
     margin-top: 20px;
     padding-left: 20px;
     width: 35%;
-`;
+`;  
 
 export const feedItemContainer = css`
     margin-top: 20px;
@@ -61,7 +61,6 @@ export const feedItemContainer = css`
         & > div:nth-of-type(1) {
             font-size: 24px;
         }
-
         & > div:nth-of-type(2) {
             font-size: 21px;
         }
@@ -69,13 +68,13 @@ export const feedItemContainer = css`
 `;
 
 export const profileImage = (url) => css`
-margin-right: 10px;
+    margin-right: 10px;
     box-sizing: border-box;
     border: 1px solid #dbdbdb;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    background-image: url("${url}");
+    background-image: url(${url});
     background-position: center;
     background-size: cover;
 `;
@@ -100,27 +99,27 @@ export const userInfo = css`
 
 export const feedImageContainer = css`
     & .slick-prev {
-        left: 25px;
+        left: 15px;
         z-index: 2;
-
         &::before {
             color: black;
+            font-size: 30px;
         }
     }
 
     & .slick-next {
-        right: 25px;
+        right: 15px;
         z-index: 2;
-
         &::before {
             color: black;
+            font-size: 30px;
         }
     }
 `;
 
 export const feedImage = (url) => css`
     width: 100%;
-    height: 300px;
+    height: 380px;
     background-image: url("${url}");
     background-position: center;
     background-size: cover;
@@ -138,14 +137,15 @@ export const feedContentContainer = css`
 `;
 
 export const commentContainer = (commentOpen) => css`
+    position: absolute;
+    right: 20px;
     margin-top: 20px;
     box-sizing: border-box;
     border-radius: 8px;
-    width: 35%;
+    width: 260px;
     height: 540px;
     box-shadow: 0 0 10px #00000066;
     background-color: #ffffff;
-    overflow: hidden;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
     opacity: ${commentOpen ? 1 : 0};

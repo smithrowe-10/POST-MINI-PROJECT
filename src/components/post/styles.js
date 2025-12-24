@@ -46,10 +46,10 @@ export const modalLayout = css`
 `;
 
 export const postButton = css`
-    /* text-shadow: 0 0 10px #000000aa; */
+    text-shadow: 0 0 10px #000000aa;
     &:disabled {
         cursor: default;
-        color: #777;
+        color: #777777;
     }
 `;
 
