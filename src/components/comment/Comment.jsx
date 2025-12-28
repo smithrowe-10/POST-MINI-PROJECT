@@ -7,6 +7,7 @@ import { useCreatePostCommentMutation } from "../../mutations/postMutations";
 function Comment({postId}) {
 
     const [ inputValue, setInputValue ] = useState("");
+    // 이 줄이 비동기 통신에 필요한 모든 상태 변수를 생성한 것과 같음. isLoading, error, onSuccess... 상태 묶음이라고 생각하면될듯
     const commentMutation = useCreatePostCommentMutation();
     
     const handleOnChange = (e) => {
@@ -20,7 +21,8 @@ function Comment({postId}) {
             content: inputValue,
         };
 
-        await commentMutation.mutateAsync({postId, data});
+        // mutateAsync에서 mutationFn 함수 호출됨
+        await commentMutation.mutateAsync({ postId, data });
         alert("댓글 작성 완료")
     }
 
