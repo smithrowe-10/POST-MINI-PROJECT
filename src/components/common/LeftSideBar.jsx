@@ -14,7 +14,7 @@ function LeftSideBar({children}) {
     const location = useLocation();
     const { pathname } = location;
     const [ addPostModalOpen, setAddPostModalOpen] = useState(false);
-    const [ openaiModalOpen, setOpenaiMdalOpen] = useState(false);
+    const [ openaiModalOpen, setOpenaiModalOpen] = useState(false);
     const [ homeRefresh, setHomeRefresh ] = useState(false);
     const layoutRef = useRef();   // html 객체 선택
     const { isLoading, data } = useMeQuery();
@@ -24,19 +24,19 @@ function LeftSideBar({children}) {
             setHomeRefresh(false);
         }
     }, [homeRefresh]);
-
     
     const handleEscKey = (e) => {
         if (e.key === "Escape" && openaiModalOpen) {
             openaiModalClose();
         }
     }
-    
+
     useEffect(() => {
-        document.addEventListener("keydown", handleEscKey)
+        document.addEventListener("keydown", handleEscKey);
         return () => document.removeEventListener("keydown", handleEscKey);
     }, [handleEscKey]);
 
+    
     const handleAddPostModelOpenOnClick = () => {
         setAddPostModalOpen(true);
     }
@@ -46,12 +46,12 @@ function LeftSideBar({children}) {
     }
 
     const handleOpenaiModalOpenOnClick = () => {
-        setOpenaiMdalOpen(true);
-    } 
-
+        setOpenaiModalOpen(true);
+    }
+    
     const openaiModalClose = () => {
-        setOpenaiMdalOpen(false);
-    } 
+        setOpenaiModalOpen(false);
+    }
 
     return <div css={s.sideBarLayout} ref={layoutRef}>
         <aside css={s.sideBarContainer}>
@@ -77,10 +77,10 @@ function LeftSideBar({children}) {
                 layoutRef={layoutRef}
                 setHomeRefresh={setHomeRefresh} />
         }
-        <div css={s.aiChat}  onClick={handleOpenaiModalOpenOnClick}><RiChatSmileAiLine /></div>
+        <div css={s.aiChat} onClick={handleOpenaiModalOpenOnClick}><RiChatSmileAiLine /></div>
         <div css={s.aiChatLayout(openaiModalOpen)}>
             <div css={s.aiChatContainer}>
-                <OpenaiApiModal/>
+                <OpenaiApiModal />
             </div>
             <button css={s.aiChatClose} onClick={openaiModalClose}>닫기</button>
         </div>

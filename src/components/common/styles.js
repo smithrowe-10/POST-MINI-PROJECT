@@ -150,18 +150,16 @@ export const aiChat = css`
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: white;
+    color: #ffffff;
     background-color: #008ee7;
     cursor: pointer;
-
     &:hover {
-        background-color: #0078c2;
+        background-color: #0080cf;
     }
-
     &:active {
-        background-color: #0061b7;
+        background-color: #0071b7;
     }
-`
+`; 
 
 export const aiChatLayout = (isOpen) => css`
     transition: all 0.5s ease-in-out;
@@ -175,7 +173,7 @@ export const aiChatLayout = (isOpen) => css`
     padding: 20px;
     width: 730px;
     height: 100%;
-    background-color: #f3f5f7;
+    background-color: #ffffffff;
     opacity: ${isOpen ? 1 : 0};
 `;
 
@@ -184,7 +182,7 @@ export const aiChatContainer = () => css`
     padding-bottom: 30px;
     width: 100%;
     height: 100%;
-`
+`;
 
 export const aiChatClose = css`
     position: absolute;
@@ -195,7 +193,7 @@ export const aiChatClose = css`
     border-radius: 6px;
     padding: 5px 15px;
     background-color: #ff4141ff;
-    color: #fff;
+    color: #ffffff;
     font-weight: 500;
     cursor: pointer;
     &:hover {
@@ -204,4 +202,4 @@ export const aiChatClose = css`
     &:active {
         background-color: #df3939ff;
     }
-`
+`;
